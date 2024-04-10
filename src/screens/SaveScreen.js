@@ -1,18 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import SegmentedControlTab from "react-native-segmented-control-tab"
-import { Box,Center,Pressable,Text } from "@gluestack-ui/themed";
+import { Box,Center,Pressable,Text ,FlatList} from "@gluestack-ui/themed";
 import { StyleSheet } from "react-native";
-
 import { useNavigation } from '@react-navigation/native';
 
+import EventList from "../components/EventList"
+import EventItem from "../components/EventItem";
+
+import Events from "../json/Events.json"
 
 export default SaveScreen = () => {
     const [segmentIndex,setSegmentIndex] = useState(0);
 
     const SegmentContent = () =>{
         return(
-            segmentIndex? <Join/>:<Mark/>
+            !segmentIndex? <Join/>:<Mark/>
         );
     }
     return(
@@ -28,20 +31,25 @@ export default SaveScreen = () => {
 }
 
 const Mark=()=>{
-    const {navigate} =useNavigation();
+    const renderItem=({item})=>item.mark?<EventItem event={item}/>:null;
+
     return(
-        <Pressable onPress={()=>navigate("saveDetail")}>
-        <Center>
-            <Text  style={styles.btn}>點我看更多</Text>
-        </Center>
-        </Pressable>
+        <FlatList
+        data={Events}
+        renderItem={renderItem}
+        keyExtractor={(item,index)=>index+item}
+        />
     )
 }
 const Join=()=>{
+    const renderItem=({item})=>item.join?<EventItem event={item}/>:null;
+
     return(
-        <Center>
-            <Text>Join</Text>
-        </Center>
+        <FlatList
+        data={Events}
+        renderItem={renderItem}
+        keyExtractor={(item,index)=>index+item}
+        />
     )
 }
 
