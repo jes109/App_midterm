@@ -3,9 +3,7 @@ import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
 
-import Navigation from "./src/navigation";
-
-
+import Navigation from "./src/Navigation";
 
 const App = () => {
   return(

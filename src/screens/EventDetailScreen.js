@@ -1,8 +1,8 @@
 import React from "react";
 import { Box,Text } from "@gluestack-ui/themed";
 
-export default MyEventsStack = () => {
+export default EventDetail = () => {
     return(
-        <Text>MyEvents</Text>
+        <Text>Event</Text>
     )
 }
