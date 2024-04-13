@@ -15,8 +15,8 @@ const styles=StyleSheet.create(
         btn:{
             padding:10,
             width:150,
-            color:"#fff",
-            backgroundColor:"black"
+            color: "black",
+            backgroundColor: "black"
         }
     }
 );
