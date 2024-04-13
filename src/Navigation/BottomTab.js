@@ -21,7 +21,7 @@ export default () =>{
             tabBarActiveTintColor:colors.primary800,
             tabBarStyle:{
                 backgroundColor:colors.lightsurface
-            }
+            },
         }}
         >
             <Tab.Screen name="home" component={HomeStack} 

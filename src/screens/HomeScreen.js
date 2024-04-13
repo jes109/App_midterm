@@ -9,12 +9,9 @@ export default Home = () => {
     const {colors} =useTheme();
     return(
         <Box bg={colors.surface}>
-        <Center mt={16}>
-            <Input variant="rounded" size="lg" mb={16} w={360}>
-            <InputField placeholder="search" bg={colors.lightsurface}/>
-            </Input>
-            <EventList/>
-        </Center>
+            <Center>
+                <EventList/>
+            </Center>
         </Box>
     )
 }
