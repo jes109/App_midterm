@@ -13,7 +13,11 @@ const Tab = createBottomTabNavigator();
 //Tab的title名稱如果有更適當的可再修改
 export default () =>{ 
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+        screenOptions={{
+            headerShown:false
+        }}
+        >
             <Tab.Screen name="home" component={HomeStack} 
             options={{
                 title:"找活動",

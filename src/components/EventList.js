@@ -13,6 +13,7 @@ export default EventList = () =>{
         data={Events}
         renderItem={renderItem}
         keyExtractor={(item,index)=>index+item}
+        showsVerticalScrollIndicator={false}
         />
     )
 }
