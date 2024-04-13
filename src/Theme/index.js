@@ -8,7 +8,9 @@ const MyTheme = {
         primary500:"#707769",
         card:"#F6F7EF",
         surface:"#ADB7A8",
-        focus:"#FFC700"
+        lightsurface:"#EDF2E7",
+        header:"#F6F7E3",
+        focus:"#FFC700",
     }
 }
 
