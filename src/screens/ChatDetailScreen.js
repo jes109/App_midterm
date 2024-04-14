@@ -1,5 +1,7 @@
+
 import React from "react";
-import { StyleSheet, Box, Image, Text } from "@gluestack-ui/themed";
+import { Box, Image, Text } from "@gluestack-ui/themed";
+import { StyleSheet } from "react-native";
 
 export default ChatDetail = ({route}) => {
     const {title, message, img}=route.params;

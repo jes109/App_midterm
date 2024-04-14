@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Image, View, Text, StyleSheet } from "@gluestack-ui/themed";
+import { Box, Image, View, Text } from "@gluestack-ui/themed";
 import { useNavigation } from '@react-navigation/native';
+import { StyleSheet } from "react-native";
 import { Circle } from "react-native-svg";
 
 export default ChatItem =({chat})=>{
