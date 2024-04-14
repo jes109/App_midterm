@@ -44,7 +44,7 @@
         "trait":"對鳥有興趣",
         "img":"https://github.com/jes109/App_midterm/blob/master/src/img/bird.jpg?raw=true",
         "description":"最近計劃到關渡自然公園賞鳥，\n但身邊沒有共同興趣的朋友QQ\n\n希望能找到一些志同道合的夥伴一起分享這份樂趣。\n如果你也對觀鳥有濃厚興趣，或是想要體驗一下關渡的美妙鳥類生態，都歡迎加入哦！",
-        "mark":true,
+        "mark":false,
         "join":true
     },
     {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from "react-native-vector-icons/AntDesign"
@@ -12,8 +13,17 @@ const Tab = createBottomTabNavigator();
 
 //Tab的title名稱如果有更適當的可再修改
 export default () =>{ 
+    const {colors}=useTheme();
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+        screenOptions={{
+            headerShown:false,
+            tabBarActiveTintColor:colors.primary800,
+            tabBarStyle:{
+                backgroundColor:colors.lightsurface
+            },
+        }}
+        >
             <Tab.Screen name="home" component={HomeStack} 
             options={{
                 title:"找活動",
