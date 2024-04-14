@@ -15,10 +15,16 @@ const Stack = createStackNavigator();
 export default Home = () => {
     const {colors}=useTheme();
     const {goBack} =useNavigation();
+
     const [notify,setNotify]=useState(true);
     let notifyIcon=notify?"bell-badge":"bell";
-
     const checkNotify= ()=>setNotify(!notify);
+
+    const [hasMark,setHasMark]=useState(false);
+    let markIcon= hasMark?"bookmark":"bookmark-outline";
+    let markIconColor= hasMark?colors.focus:colors.primary500;
+    const setmark = ()=>setHasMark(!hasMark);
+
     
     return(
         <Stack.Navigator
@@ -47,6 +53,11 @@ export default Home = () => {
                 headerLeft:()=>(
                     <Pressable pl={12}>
                         <AntDesign name="left" size={24} color={colors.primary800} onPress={()=>goBack()} /> 
+                    </Pressable>
+                ),
+                headerRight:()=>(
+                    <Pressable pr={12}>
+                        <MaterialCommunityIcons name={markIcon} size={28} color={markIconColor} onPress={setmark} />
                     </Pressable>
                 ),
                 title:"",

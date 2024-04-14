@@ -10,6 +10,7 @@ export default ChatItem =({chat})=>{
         <Box bg="#fff"  w="$4/5" rounded="$xl" mb={20}>
             <Image
                 style={styles.icon} 
+                alt="照片"
                 source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24%20(1).svg"}}
             />
             <Box  py={20} pl={8}>
