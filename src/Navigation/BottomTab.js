@@ -37,7 +37,7 @@ export default () =>{
                 tabBarIcon:({color})=>( <AntDesign name='book' color={color} size={26}/>)
             }}
             />
-            <Tab.Screen name="chat" component={ChatScreen} 
+            <Tab.Screen name="chat" component={ChatStack} 
             options={{
                 title:"聊天室",
                 tabBarIcon:({color})=>( <MaterialCommunityIcons name='chat-processing-outline' color={color} size={26}/>)
