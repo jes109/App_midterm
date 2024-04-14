@@ -1,10 +1,9 @@
-
 import React from "react";
-import { Box, Image, Text } from "@gluestack-ui/themed";
 import { StyleSheet } from "react-native";
+import { Box, Image, Text } from "@gluestack-ui/themed";
 
 export default ChatDetail = ({route}) => {
-    const {title, message, img}=route.params;
+    const {title, message}=route.params;
     return(
         <Box bg="#fff" w="$80">
             <Text size="xl">{title}</Text>
@@ -16,12 +15,3 @@ export default ChatDetail = ({route}) => {
         </Box>
     )
 }
-
-const styles=StyleSheet.create(
-    {
-        icon: {
-            height: 50,
-            width: 50
-        }
-    }
-);
