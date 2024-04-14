@@ -10,14 +10,9 @@ export default ChatStack=()=>{
     return(
         <Stack.Navigator>
             <Stack.Screen name="Chat" component={ChatScreen} 
-            //options={{
-            //    title:"我的"
-            //}}
-            />
-            <Stack.Screen name="ChatDetail" component={ChatDetailScreen} 
-            // options={{
-            //    title:"活動細節"
-            //}}
+            options={{
+                title: "聊天室"
+            }}
             />
         </Stack.Navigator>
     )

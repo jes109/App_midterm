@@ -1,29 +1,48 @@
 import React from "react";
-import { Box, Image, View, Text, StyleSheet } from "@gluestack-ui/themed";
+import { StyleSheet } from "react-native";
+import { Box, Image, View, Text, Pressable } from "@gluestack-ui/themed";
 import { useNavigation } from '@react-navigation/native';
-import { Circle } from "react-native-svg";
 
 export default ChatItem =({chat})=>{
     const {navigate} = useNavigation();
     return(
-        <Box bg="#fff"  w="$4/5" rounded="$xl" mb={20}>
-            <Image
-                style={styles.icon} 
-                source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24%20(1).svg"}}
-            />
-            <Box  py={20} pl={8}>
-                <Text size="xl">{chat.title}</Text>
-                <Text size="s" mt={8}>{chat.message}</Text>
-            </Box>
-        </Box>
+        <View style={styles.card}>
+            <Pressable>
+                <Image 
+                    style={styles.icon} 
+                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
+                    alt="user"
+                />
+            </Pressable>
+            <View style={styles.text}>
+                <Text style={styles.title}>{chat.title}</Text>
+                <Text style={styles.message}>{chat.message}</Text>
+            </View>
+        </View>
     );
 }
 
 const styles=StyleSheet.create(
     {
         icon: {
-            height: 50,
-            width: 50
+            height: 40,
+            width: 40,
+            marginLeft: 15
+        },
+        title: {
+            fontSize: 25
+        },
+        message: {
+            fontSize: 20,
+            color: "gray"
+        },
+        card: {
+            flexDirection: "row",
+            alignItems: "center",
+            paddingVertical: 15
+        },
+        text: {
+            marginLeft: 20
         }
     }
 );

@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.24.1",
     "@gluestack-style/react": "^1.0.52",
     "@gluestack-ui/config": "^1.1.18",
     "@gluestack-ui/themed": "^1.1.22",
@@ -16,6 +17,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@react-navigation/stack": "^6.3.29",
+    "drawer": "^0.0.2",
     "expo": "~50.0.14",
     "expo-status-bar": "~1.11.1",
     "native": "^0.3.3",
@@ -26,7 +28,9 @@
     "react-native-segmented-control-tab": "^4.0.0",
     "react-native-svg": "14.1.0",
     "react-native-vector-icons": "^10.0.3",
-    "undefined": "@react-navigation/"
+    "undefined": "@react-navigation/",
+    "react-native-gesture-handler": "~2.14.0",
+    "react-native-reanimated": "~3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

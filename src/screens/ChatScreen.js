@@ -1,14 +1,19 @@
 import React from "react";
-import { Box,Image,Pressable,Text,Center } from "@gluestack-ui/themed";
+import { View, Box, Image, Pressable, Text, Center } from "@gluestack-ui/themed";
 import { StyleSheet } from "react-native";
 
 import ChatList from "../components/ChatList";
+import Header from "../components/Header"
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default Chat = ({navigation}) => {
     return(
-        //<Center>
-            <ChatList/>
-        //</Center>
+        <SafeAreaProvider>
+            <View style={{flex: 1}}>
+                <Header />
+                <Center><ChatList/></Center>
+            </View>
+        </SafeAreaProvider>
     )
 }
 
