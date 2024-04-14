@@ -1,4 +1,3 @@
-
 import React from "react";
 import { View, Box, Image, Pressable, Text, Center } from "@gluestack-ui/themed";
 import { StyleSheet } from "react-native";
@@ -13,7 +12,6 @@ export default ChatScreen = ({navigation}) => {
             <View style={{flex: 1}}>
                 <Header />
                 <Center><ChatList/></Center>
-                <ChatList/>
             </View>
         </SafeAreaProvider>
     )

@@ -20,7 +20,7 @@ export default ChatList = () =>{
                 </Input>
             </Box>
         )}
-        stickyHeaderIndices={[0]}
+        //stickyHeaderIndices={[0]}
 
         data={Chat}
         renderItem={renderItem}

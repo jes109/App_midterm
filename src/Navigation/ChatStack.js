@@ -11,7 +11,8 @@ export default ChatStack=()=>{
         <Stack.Navigator>
             <Stack.Screen name="Chat" component={ChatScreen} 
             options={{
-                title: "聊天室"
+                title: "聊天室",
+                headerShown: false
             }}
             />
         </Stack.Navigator>
