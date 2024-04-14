@@ -1,10 +1,18 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View, Pressable, Image, Text, Center } from "@gluestack-ui/themed";
+import { Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default SettingDetail = () =>{
     const navigation = useNavigation();
+    const [showActionsheet, setShowActionsheet] = React.useState(false);
+    const handleClose = () => setShowActionsheet(!showActionsheet);
+    const HorizontalLine = () => {
+        return (
+            <View style={styles.line} />
+        );
+    };
 
     return(
             <View>
@@ -130,6 +138,23 @@ export default SettingDetail = () =>{
                         </Center>
                     </View>
                 </Center>
+                <Box>
+                    <MaterialCommunityIcons 
+                        name={"logout"}
+                        size={40}
+                        onPress={handleClose}
+                    />
+                    <Actionsheet isOpen={showActionsheet} onClose={handleClose} zIndex={999}>
+                        <ActionsheetBackdrop />
+                        <ActionsheetContent h="$72" zIndex={999}>
+                            <Text style={styles.sure}>確定登出?</Text>
+                            <HorizontalLine />
+                            <Text style={styles.yes}>Yes</Text>
+                            <HorizontalLine />
+                            <Text style={styles.cancel}>Cancel</Text>
+                        </ActionsheetContent>
+                    </Actionsheet>
+                </Box>
             </View>
 
     )
@@ -137,6 +162,28 @@ export default SettingDetail = () =>{
 
 const styles=StyleSheet.create(
     {
+        line: {
+            width: "100%",
+            height: 2,
+            backgroundColor: "#D3D3D3",
+            marginTop: 10,
+            marginBottom: 10
+        },
+        sure: {
+            fontSize: 20,
+            color: "red",
+            paddingVertical: 20
+        },
+        yes: {
+            fontSize: 20,
+            color: "black",
+            paddingVertical: 20
+        },
+        cancel: {
+            fontSize: 20,
+            color: "blue",
+            paddingVertical: 20
+        },
         logout: {
             marginTop: 40,
             justifyContent: "center",
