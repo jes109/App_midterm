@@ -1,5 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { useTheme } from "@react-navigation/native";
+import { Pressable } from "@gluestack-ui/themed";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from "react-native-vector-icons/AntDesign"
@@ -15,6 +17,11 @@ const Tab = createBottomTabNavigator();
 //Tab的title名稱如果有更適當的可再修改
 export default () =>{ 
     const {colors}=useTheme();
+
+    const [notify,setNotify]=useState(true);
+    let notifyIcon=notify?"bell-badge":"bell";
+    const checkNotify= ()=>setNotify(!notify);
+
     return(
         <Tab.Navigator
         screenOptions={{
@@ -23,6 +30,13 @@ export default () =>{
             tabBarStyle:{
                 backgroundColor:colors.lightsurface
             },
+            headerStyle:{
+                backgroundColor:colors.header,
+            },
+            headerTitleStyle:{
+                color:colors.primary800,
+                fontSize:20
+            }
         }}
         >
             <Tab.Screen name="home" component={HomeStack} 
@@ -34,6 +48,13 @@ export default () =>{
             <Tab.Screen name="save" component={SaveStack} 
             options={{
                 title:"我的活動",
+                headerShown:true,
+                headerRight:()=>(
+                    <Pressable pr={12}>
+                        <MaterialCommunityIcons name={notifyIcon} size={24} color={colors.primary800} 
+                        onPress={notify?checkNotify:null} /> 
+                    </Pressable>
+                ),
                 tabBarIcon:({color})=>( <AntDesign name='book' color={color} size={26}/>)
             }}
             />

@@ -17,7 +17,7 @@ export default EvenItem =({event})=>{
     const setmark = ()=>setHasMark(!hasMark);
 
     return(
-        <Box w={350} rounded="$xl" overflow="hidden" mb={20}>
+        <Box w={350} rounded="$xl" overflow="hidden" mb={20} alignSelf="center">
             <TouchableOpacity activeOpacity={0.5} onPress={()=>navigate("detail",event)}>
                 <Image source={{uri:`${event.img}`}} alt="bird" w="$full" h={132}/>
             </TouchableOpacity>
