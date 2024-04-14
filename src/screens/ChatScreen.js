@@ -6,17 +6,19 @@ import ChatList from "../components/ChatList";
 
 export default Chat = ({navigation}) => {
     return(
+        //<Center>
             <ChatList/>
+        //</Center>
     )
 }
 
 const styles=StyleSheet.create(
     {
-        btn:{
-            padding:10,
-            width:150,
-            color: "white",
-            backgroundColor: "black"
-        }
+        //btn:{
+        //    padding:10,
+        //    width:150,
+        //    color: "white",
+        //    backgroundColor: "black"
+        //}
     }
 );

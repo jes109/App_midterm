@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text } from "@gluestack-ui/themed";
+import { StyleSheet, Box, Image, Text } from "@gluestack-ui/themed";
 
 export default ChatDetail = ({route}) => {
     const {title, message, img}=route.params;
@@ -7,7 +7,19 @@ export default ChatDetail = ({route}) => {
         <Box bg="#fff" w="$80">
             <Text size="xl">{title}</Text>
             <Text>{message}</Text>
-            <Image source={img} alt="pic" w="$72"/>
+            <Image
+                style={styles.icon} 
+                source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24.png"}}
+            />
         </Box>
     )
 }
+
+const styles=StyleSheet.create(
+    {
+        icon: {
+            height: 50,
+            width: 50
+        }
+    }
+);
