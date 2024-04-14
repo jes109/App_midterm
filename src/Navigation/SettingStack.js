@@ -1,8 +1,19 @@
 import React from "react";
-import { Box,Text } from "@gluestack-ui/themed";
+import {createStackNavigator} from "@react-navigation/stack"
 
-export default SettingStack = () => {
+import SettingScreen from "../screens/SettingScreen";
+
+const Stack = createStackNavigator();
+
+export default ChatStack=()=>{
     return(
-        <Text>Setting</Text>
+        <Stack.Navigator>
+            <Stack.Screen name="Setting" component={SettingScreen} 
+            options={{
+                title: "設定",
+                headerShown: false
+            }}
+            />
+        </Stack.Navigator>
     )
 }

@@ -25,8 +25,8 @@ export default ChatItem =({chat})=>{
 const styles=StyleSheet.create(
     {
         icon: {
-            height: 40,
-            width: 40,
+            height: 50,
+            width: 50,
             marginLeft: 15
         },
         title: {

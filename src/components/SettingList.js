@@ -1,12 +1,8 @@
 import React from "react";
+import { StyleSheet } from "react-native";
 import { FlatList, Box, Input, InputIcon, InputField, SearchIcon, InputSlot} from "@gluestack-ui/themed";
 
-import ChatItem from "./ChatItem";
-
-import Chat from "../json/Chat.json"
-
-export default ChatList = () =>{
-    const renderItem=({item})=><ChatItem chat={item}/>;
+export default SettingList = () =>{
 
     return(
         <FlatList
@@ -20,12 +16,6 @@ export default ChatList = () =>{
                 </Input>
             </Box>
         )}
-        
-        //stickyHeaderIndices={[0]}
-
-        data={Chat}
-        renderItem={renderItem}
-        keyExtractor={(item,index)=>index+item}
         />
     )
 }
