@@ -6,6 +6,8 @@ const MyTheme = {
         ...DefaultTheme.colors,
         primary800:"#194200",
         primary500:"#707769",
+        primary200:"#D6E0CC",
+        primaryContainer:"#D9FF8A",
         card:"#F6F7EF",
         surface:"#ADB7A8",
         lightsurface:"#EDF2E7",

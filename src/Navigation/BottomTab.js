@@ -8,6 +8,7 @@ import HomeStack from "./HomeStack"
 import ChatStack from "./ChatStack";
 import SettingStack from "./SettingStack";
 import SaveStack from "./SaveStack";
+import ChatScreen from "../screens/ChatScreen"
 
 const Tab = createBottomTabNavigator();
 
@@ -36,7 +37,7 @@ export default () =>{
                 tabBarIcon:({color})=>( <AntDesign name='book' color={color} size={26}/>)
             }}
             />
-            <Tab.Screen name="chat" component={ChatStack} 
+            <Tab.Screen name="chat" component={ChatScreen} 
             options={{
                 title:"聊天室",
                 tabBarIcon:({color})=>( <MaterialCommunityIcons name='chat-processing-outline' color={color} size={26}/>)
