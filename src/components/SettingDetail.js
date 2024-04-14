@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View, Pressable, Image, Text } from "@gluestack-ui/themed";
+import { View, Pressable, Image, Text, Center } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
 
 export default SettingDetail = () =>{
@@ -74,6 +74,62 @@ export default SettingDetail = () =>{
                         <Text style={styles.num}>徽章</Text>
                     </View>
                 </View>
+                <View style={styles.mode}>
+                    <Text>Light Mode</Text>
+                </View>
+                <View style={styles.btns}>
+                    <View style={styles.btnup}>
+                        <View style={styles.btnleft}>
+                            <Pressable>
+                                <Image 
+                                    style={styles.btniconsave} 
+                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/Vector-1.png?raw=true"}}
+                                    alt="saved"
+                                />
+                            </Pressable>
+                            <Text style={styles.word}>我的收藏</Text>
+                        </View>
+                        <View style={styles.btnright}>
+                            <Pressable>
+                                <Image 
+                                    style={styles.btniconlike} 
+                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/Vector.png?raw=true"}}
+                                    alt="like"
+                                />
+                            </Pressable>
+                            <Text style={styles.word}>喜歡</Text>
+                        </View>
+                    </View>
+                    <View style={styles.btndown}>
+                        <View style={styles.btnleft}>
+                            <Pressable>
+                                <Image 
+                                    style={styles.btnicon} 
+                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/edit_square_FILL0_wght400_GRAD0_opsz24%202.png?raw=true"}}
+                                    alt="my posts"
+                                />
+                            </Pressable>
+                            <Text style={styles.wordpost}>我的貼文</Text>
+                        </View>
+                        <View style={styles.btnright}>
+                            <Pressable>
+                                <Image 
+                                    style={styles.btnicon} 
+                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/help_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
+                                    alt="help"
+                                />
+                            </Pressable>
+                            <Text style={styles.word}>幫助</Text>
+                        </View>
+                    </View>
+                </View>
+                <Center>
+                    <View style={styles.logout}>
+                        <Center>
+                            <Text style={styles.logoutword}>Log Out</Text>
+                        </Center>
+                    </View>
+                </Center>
             </View>
 
     )
@@ -81,6 +137,83 @@ export default SettingDetail = () =>{
 
 const styles=StyleSheet.create(
     {
+        logout: {
+            marginTop: 40,
+            justifyContent: "center",
+            backgroundColor: "orange",
+            borderRadius: 20,
+            width: 180
+        },
+        logoutword: {
+            fontSize: 20,
+            paddingVertical: 15,
+            justifyContent: "center",
+        },
+        word: {
+            marginLeft: 15,
+            marginRight: 8,
+            fontSize: 18
+        },
+        wordpost: {
+            marginLeft: 8,
+            marginRight: 8,
+            fontSize: 18
+        },
+        btns:{
+            flexDirection: "column",
+            justifyContent: "center",
+            marginTop: 30
+        },
+        btnup: {
+            flexDirection: "row",
+            justifyContent: "space-around"
+        },
+        btndown: {
+            flexDirection: "row",
+            justifyContent: "space-around",
+            marginTop: 12
+        },
+        btnleft: {
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            backgroundColor: "pink",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            height: 60,
+            width: 150,
+            borderRadius: 12,
+        },
+        btnright: {
+            flexDirection: "row",
+            backgroundColor: "pink",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            height: 60,
+            width: 150,
+            borderRadius: 12,
+        },
+        btnicon: {
+            height: 40,
+            width: 40
+        },
+        btniconsave: {
+            height: 40,
+            width: 30
+        },
+        btniconlike: {
+            height: 37,
+            width: 40
+        },
+        mode: {
+            backgroundColor: "gray",
+            fontSize: 30,
+            marginTop: 40,
+            paddingVertical: 10,
+            paddingLeft: 20
+        },
         follow: {
             flexDirection: "row",
             justifyContent: "space-around",
