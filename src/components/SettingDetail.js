@@ -5,6 +5,7 @@ import { config } from "@gluestack-ui/config";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { Switch, Button, Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent, ActionsheetItem, ActionsheetItemText, GluestackUIProvider } from "@gluestack-ui/themed";
 import { useNavigation, useTheme } from "@react-navigation/native";
+//import { CommonActions } from "@react-navigation/native";
 //import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default SettingDetail = () =>{
@@ -16,6 +17,11 @@ export default SettingDetail = () =>{
             <View style={styles.line} />
         );
     };
+    const close = () => {
+        setShowActionsheet(false);
+        navigation.navigate("Login");
+    };
+    //const {goBack} =useNavigation();
     const {colors} = useTheme();
     const [colorMode, setColorMode] = useState("white");
     const toggleColorMode = () => {
@@ -91,29 +97,7 @@ export default SettingDetail = () =>{
                         <Text style={styles.num}>3</Text>
                     </View>
                 </View>
-                <Center
-                    shadow={2} width="90%"
-                    mt="$2" px="$2" py="$4"
-                    bg={colorMode} borderRadius={3}
-                    alignSelf="center"
-                >
-                    <HStack alignItems="center">
-                        <Text size="lg" px="$2">
-                            {colorMode == "light" ? "Light Mode" : "Dark Mode"}
-                        </Text>
-                        <Switch
-                            name="light Mode"
-                            value={colorMode === "white"}
-                            trackColor={{
-                                false: "black",
-                                true: "white"
-                            }}
-                            onToggle={toggleColorMode}
-                            accessibilityLabel="display-mode"
-                            accessibilityHint="light or dark mode"
-                        />
-                    </HStack>
-                </Center>
+                
                 <View style={styles.btns}>
                     <View style={styles.btnup}>
                         <Box style={styles.btnleft} bg={colors.primary200}>
@@ -175,17 +159,21 @@ export default SettingDetail = () =>{
                         <ActionsheetContent h="$72" zIndex={999}>
                             <Text style={styles.sure}>確定登出?</Text>
                             <HorizontalLine />
-                            <ActionsheetItem onPress={handleClose}>
-                                <Center>
-                                    <ActionsheetItemText style={styles.yes}>Yes</ActionsheetItemText>
-                                </Center>
-                            </ActionsheetItem>
+                            <Center>
+                                <ActionsheetItem onPress={close}>
+                                    <Center>
+                                        <ActionsheetItemText style={styles.item}><Text style={styles.yes}>Yes</Text></ActionsheetItemText>
+                                    </Center>
+                                </ActionsheetItem>
+                            </Center>
                             <HorizontalLine />
-                            <ActionsheetItem onPress={handleClose}>
-                                <Center>
-                                    <ActionsheetItemText style={styles.cancel}>Cancel</ActionsheetItemText>
-                                </Center>
-                            </ActionsheetItem>
+                            <Center>
+                                <ActionsheetItem onPress={handleClose}>
+                                    <Center>
+                                        <ActionsheetItemText style={styles.item}><Text style={styles.cancel}>Cancel</Text></ActionsheetItemText>
+                                    </Center>
+                                </ActionsheetItem>
+                            </Center>
                         </ActionsheetContent>
                     </Actionsheet>
                 </Box>
@@ -196,6 +184,9 @@ export default SettingDetail = () =>{
 
 const styles=StyleSheet.create(
     {
+        item: {
+            alignSelf: "center"
+        },
         line: {
             width: "100%",
             height: 2,
@@ -221,7 +212,7 @@ const styles=StyleSheet.create(
             alignSelf:"center"
         },
         logout: {
-            marginTop: 40,
+            marginTop: 50,
             justifyContent: "center",
             //backgroundColor: "orange",
             borderRadius: 20,
@@ -307,7 +298,7 @@ const styles=StyleSheet.create(
         follow: {
             flexDirection: "row",
             justifyContent: "space-around",
-            marginTop: 40,
+            marginTop: 50,
             marginBottom: 20
         },
         block: {
@@ -322,7 +313,7 @@ const styles=StyleSheet.create(
             fontSize: 25,
         },
         card: {
-            marginTop: 30,
+            marginTop: 40,
             flexDirection: "row",
             alignItems: "center",
         },

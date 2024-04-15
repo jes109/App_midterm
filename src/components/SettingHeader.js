@@ -2,13 +2,16 @@ import React from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 //import { DrawerActions } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import { Center } from "@gluestack-ui/themed";
 
 const SettingHeader = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.headerStyle}>
+      <Center>
         <Text style={styles.textStyle}>設定</Text>
+      </Center>
     </View>
   );
 };

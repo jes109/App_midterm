@@ -7,7 +7,7 @@ import LoginScreen from "../screens/LoginScreen"
 import MyTheme from "../Theme"
 import { KeyboardAvoidingView } from "@gluestack-ui/themed";
 import { Platform } from "react-native";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectLogin } from "../redux/accountSlice";
 
 const Navigation = () => {
