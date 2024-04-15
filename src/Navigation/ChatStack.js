@@ -13,9 +13,9 @@ import ChatDetailScreen from "../screens/ChatDetailScreen";
 //import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();
-//const navigation = useNavigation();
 
 export default ChatStack = () => {
+    const navigation = useNavigation();
 
     return(
         <Stack.Navigator
@@ -50,14 +50,21 @@ export default ChatStack = () => {
                         </View>
                     </View>
                 ),
-                //headerLeft: () => (
-                //    <MaterialCommunityIcons 
-                //        name={"menu"}
-                //        size={30}
-                //        onPress={() => navigation.openDrawer}
-                //        style={{marginRight: 20}}
-                //    />
-                //)
+                headerLeft: () => (
+                    <Pressable onPress={() => navigation.toggleDrawer()}>
+                        <Image 
+                            style={styles.icon}
+                            source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/icon_menu%20(1).png?raw=true"}}
+                            alt="icon"
+                        />
+                    </Pressable>
+                   // <MaterialCommunityIcons 
+                   //     name={"menu"}
+                   //     size={30}
+                   //     onPress={() => navigation.toggleDrawer()}
+                   //     style={{marginRight: 20}}
+                   // />
+                )
             }}
             />
         </Stack.Navigator>
@@ -84,6 +91,10 @@ const styles=StyleSheet.create(
         },
         icons: {
             flexDirection: "row"
+        },
+        icon: {
+            width: 30,
+            height: 30
         }
     }
 );

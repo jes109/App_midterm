@@ -14,53 +14,25 @@ export default () =>{
     );
 }
 
-const CustomDrawerContent = (props) => {
-    const HorizontalLine = () => {
-        return (
-            <View style={styles.line} />
-        );
-    };
-
-    return (
-        <DrawerContentScrollView {...props}
-            contentContainerStyle={{paddingTop: 0}}
-        >
-            <Image
-                style={styles.drawImg}
-                source={{uri: "https://github.com/st-56/ReactNative_wk3_BookList/blob/main/assets/bookimg/img_avatar.png?raw=true"}}
-            />
-            <Text style={styles.username}>
-                May
-            </Text>
-            <HorizontalLine />
-            <DrawerItemList {...props} />
-        </DrawerContentScrollView>
-    );
-}
-
 const MyDrawer = () => {
     return (
         <Drawer.Navigator 
             initialRouteName="HomeStack"
-            screenOptions={{
-                drawerActiveBackgroundColor: "white",
-                drawerActiveTintColor: "#6200EE",
-                drawerInactiveTintColor: "gray",
-                drawerStyle: {width: 250},
-                drawerLabelStyle: {fontSize: 18, fontWeight: '400'}
-            }}
-            drawerContent={props => <CustomDrawerContent {...props} />}
         >
             <Drawer.Screen 
-                name="AccountStack"
-                component={AccountStack}
+                name="HomeStack"
+                component={HomeStack}
                 options={{
-                    title: "Account",
-                    headerShown: false,
-                    drawLabel: "Account",
-                    drawerIcon: ({color}) => (
-                        <MaterialCommunityIcons name="account-circle" color={color} size={26} />
-                    )
+                    title: "Home",
+                    headerShown: false
+                }}
+            />
+            <Drawer.Screen 
+                name="SettingStack"
+                component={SettingStack}
+                options={{
+                    title: "Setting",
+                    headerShown: false
                 }}
             />
         </Drawer.Navigator>
