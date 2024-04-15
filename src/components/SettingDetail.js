@@ -79,16 +79,16 @@ export default SettingDetail = () =>{
                 </View>
                 <View style={styles.follow}>
                     <View style={styles.block}>
-                        <Text style={styles.num}>5</Text>
                         <Text style={styles.num}>發佈活動</Text>
+                        <Text style={styles.num}>5</Text>
                     </View>
                     <View style={styles.block}>
-                        <Text style={styles.num}>45</Text>
                         <Text style={styles.num}>參加過</Text>
+                        <Text style={styles.num}>45</Text>
                     </View>
                     <View style={styles.block}>
-                        <Text style={styles.num}>3</Text>
                         <Text style={styles.num}>徽章</Text>
+                        <Text style={styles.num}>3</Text>
                     </View>
                 </View>
                 <Center
@@ -97,7 +97,7 @@ export default SettingDetail = () =>{
                     bg={colorMode} borderRadius={3}
                     alignSelf="center"
                 >
-                    <HStack mt={20} space={8} alignItems="center">
+                    <HStack alignItems="center">
                         <Text size="lg" px="$2">
                             {colorMode == "light" ? "Light Mode" : "Dark Mode"}
                         </Text>
@@ -218,14 +218,13 @@ const styles=StyleSheet.create(
             fontSize: 20,
             color: "blue",
             paddingVertical: 20,
-            alignSelf:"center",
-            backgroundColor:"black"
+            alignSelf:"center"
         },
         logout: {
             marginTop: 40,
             justifyContent: "center",
             //backgroundColor: "orange",
-            borderRadius: 30,
+            borderRadius: 20,
             width: 180,
             paddingVertical: 15
         },
@@ -251,7 +250,7 @@ const styles=StyleSheet.create(
         btns:{
             flexDirection: "column",
             justifyContent: "center",
-            marginTop: 30
+            marginTop: 40
         },
         btnup: {
             flexDirection: "row",
@@ -270,8 +269,9 @@ const styles=StyleSheet.create(
             paddingHorizontal: 15,
             paddingVertical: 10,
             height: 60,
-            width: 150,
+            width: 160,
             borderRadius: 12,
+            marginHorizontal: 5
         },
         btnright: {
             flexDirection: "row",
@@ -281,8 +281,9 @@ const styles=StyleSheet.create(
             paddingHorizontal: 15,
             paddingVertical: 10,
             height: 60,
-            width: 150,
+            width: 160,
             borderRadius: 12,
+            marginHorizontal: 5
         },
         btnicon: {
             height: 40,
@@ -306,7 +307,8 @@ const styles=StyleSheet.create(
         follow: {
             flexDirection: "row",
             justifyContent: "space-around",
-            marginTop: 30
+            marginTop: 40,
+            marginBottom: 20
         },
         block: {
             flexDirection: "column",
@@ -317,16 +319,16 @@ const styles=StyleSheet.create(
             justifyContent: "center"
         },
         text: {
-            fontSize: 30,
+            fontSize: 25,
         },
         card: {
-            marginTop: 10,
+            marginTop: 30,
             flexDirection: "row",
-            alignItems: "center"
+            alignItems: "center",
         },
         icon: {
-            height: 60,
-            width: 60
+            height: 50,
+            width: 50
         },
         star:{
             height: 25,
@@ -346,7 +348,7 @@ const styles=StyleSheet.create(
             alignItems: "center"
         },
         hash: {
-            fontSize: 14,
+            fontSize: 12,
             color: "gray"
         }
     }
