@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import { View, Pressable, Image } from "@gluestack-ui/themed";
-import { useTheme } from "@gluestack-ui/themed";
+import { useTheme } from "@react-navigation/native";
 
 import ChatScreen from "../screens/ChatScreen";
 import ChatDetailScreen from "../screens/ChatDetailScreen";
@@ -10,7 +10,7 @@ import ChatDetailScreen from "../screens/ChatDetailScreen";
 const Stack = createStackNavigator();
 
 export default ChatStack=()=>{
-    //const { colors } = useTheme();
+    const { colors } = useTheme();
 
     return(
         <Stack.Navigator
