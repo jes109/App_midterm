@@ -22,7 +22,7 @@ const DrawerList = () =>{
 
 const MyDrawer = () => {
     return (
-        <Drawer.Navigator >
+        <Drawer.Navigator initialRouteName="HomeStack" >
             <Drawer.Screen 
                 name="HomeStack"
                 component={BottomTab}
