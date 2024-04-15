@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native"
 
 import BottomTab from "../Navigation/BottomTab"
 import LoginScreen from "../screens/LoginScreen"
+import DrawerList from "./DrawerList";
 
 import MyTheme from "../Theme"
 import { KeyboardAvoidingView } from "@gluestack-ui/themed";
@@ -24,7 +25,7 @@ const Navigation = () => {
                 (<LoginScreen theme={MyTheme}/>)
                 :
                 (<NavigationContainer theme={MyTheme}>
-                <BottomTab />
+                <DrawerList />
                 </NavigationContainer>)
             }
         </KeyboardAvoidingView>

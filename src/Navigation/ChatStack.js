@@ -16,8 +16,8 @@ import DrawerList from "./DrawerList";
 
 const Stack = createStackNavigator();
 
-export default ChatStack = () => {
-    const navigation = useNavigation();
+export default ChatStack = ({navigation}) => {
+    //const {navigation} = useNavigation();
     const {colors}=useTheme();
 
     return(
@@ -46,7 +46,7 @@ export default ChatStack = () => {
                     </View>
                 ),
                 headerLeft: () => (
-                    <Pressable onPress={() => navigation.toggleDrawer()} pl={12}>
+                    <Pressable onPress={()=> navigation.openDrawer()} pl={12}>
                         <MaterialCommunityIcons name="menu" size={28} color={colors.primary800}/>
                     </Pressable>
                    // <MaterialCommunityIcons 
