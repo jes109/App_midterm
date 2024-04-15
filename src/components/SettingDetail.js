@@ -52,7 +52,7 @@ export default SettingDetail = () =>{
                                 <MaterialCommunityIcons name="star-circle-outline" size={24} color={colors.primary200}/>
                             </HStack>
                         </View>
-                        <Text mt={8} style={styles.hash} >#資深登山客 #自行車探險家 #攀岩新手</Text>
+                        <Text style={styles.hash} >#資深登山客 #自行車探險家 #攀岩新手</Text>
                     </View>
                 </View>
                 <View style={styles.follow}>
@@ -185,7 +185,7 @@ const styles=StyleSheet.create(
             color: 'white'
         },
         word: {
-            marginLeft: 15,
+            marginLeft: 8,
             marginRight: 8,
             fontSize: 16
         },
@@ -223,7 +223,7 @@ const styles=StyleSheet.create(
             height: 60,
             width: 160,
             borderRadius: 12,
-            marginHorizontal: 5
+            marginLeft: 25
         },
         btnright: {
             flexDirection: "row",
@@ -235,7 +235,7 @@ const styles=StyleSheet.create(
             height: 60,
             width: 160,
             borderRadius: 12,
-            marginHorizontal: 5
+            marginRight: 25
         },
         btnicon: {
             height: 40,
@@ -294,7 +294,7 @@ const styles=StyleSheet.create(
             marginLeft: 15
         },
         info:{
-            marginLeft: 8
+            marginLeft: 5
         },
         user: {
             flexDirection: "row",
