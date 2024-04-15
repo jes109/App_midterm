@@ -118,7 +118,7 @@ export default SettingDetail = () =>{
                                     alt="like"
                                 />
                             </Pressable>
-                            <Text style={styles.word}>喜歡</Text>
+                            <Text style={styles.wordtwo}>喜歡</Text>
                         </Box>
                     </View>
                     <View style={styles.btndown}>
@@ -140,7 +140,7 @@ export default SettingDetail = () =>{
                                     alt="help"
                                 />
                             </Pressable>
-                            <Text style={styles.word}>幫助</Text>
+                            <Text style={styles.wordtwo}>幫助</Text>
                         </Box>
                     </View>
                 </View>
@@ -231,12 +231,17 @@ const styles=StyleSheet.create(
         word: {
             marginLeft: 15,
             marginRight: 8,
-            fontSize: 18
+            fontSize: 16
+        },
+        wordtwo: {
+            marginLeft: 25,
+            marginRight: 8,
+            fontSize: 16
         },
         wordpost: {
             marginLeft: 8,
             marginRight: 8,
-            fontSize: 18
+            fontSize: 16
         },
         btns:{
             flexDirection: "column",
