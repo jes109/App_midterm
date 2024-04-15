@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import SegmentedControlTab from "react-native-segmented-control-tab"
-import { Box,Center,Pressable,Text ,FlatList} from "@gluestack-ui/themed";
+import { Box,Center,Pressable,Text ,FlatList, ScrollView} from "@gluestack-ui/themed";
 import { StyleSheet } from "react-native";
 import { useNavigation,useTheme } from '@react-navigation/native';
 
 import EventList from "../components/EventList"
-import EventItem from "../components/EventItem";
+import JoinItem from "../components/JoinItem";
+import MarkItem from "../components/MarkItem";
 
 import Events from "../json/Events.json"
 
@@ -17,7 +18,7 @@ export default SaveScreen = () => {
     const SegmentContent = () =>!segmentIndex? <Join/>:<Mark/>
 
     return(
-        <Box bg={colors.surface}>
+        <Box bg={colors.surface} flex={1} >
             <SegmentedControlTab 
             values={["已參加","收藏"]}
             tabStyle={{
@@ -27,45 +28,40 @@ export default SaveScreen = () => {
                 backgroundColor:"transparent",
                 borderColor:colors.primary800
             }}
-            firstTabStyle={{
-                marginLeft:20
-            }}
-            lastTabStyle={{
-                marginRight:20
-            }}
-            tabTextStyle={{
-                color:colors.primary800
-            }}
-            activeTabStyle={{
-                backgroundColor:colors.lightsurface
-            }}
-            activeTabTextStyle={{
-                color:colors.primary800
-            }}
+            firstTabStyle={{marginLeft:20 ,borderTopLeftRadius:20,borderBottomLeftRadius:20}}
+            lastTabStyle={{marginRight:20 ,borderTopRightRadius:20,borderBottomRightRadius:20}}
+            tabTextStyle={{color:colors.primary800,padding:4}}
+            activeTabStyle={{backgroundColor:colors.lightsurface}}
+            activeTabTextStyle={{color:colors.primary800}}
             selectedIndex={segmentIndex}
-            onTabPress={(index)=>setSegmentIndex(index)}
-            />
+            onTabPress={(index)=>setSegmentIndex(index)} />
+            <Box flex={1}>
             <SegmentContent/>
+            </Box>
+
         </Box>
     )
 }
 
 const Mark=()=>{
-    const renderItem=({item})=>item.mark?<EventItem event={item}/>:null;
+    const renderItem=({item})=>item.mark?<MarkItem event={item}/>:null;
 
     return(
-        <Center >
+        <ScrollView>
+        <Center>
             <FlatList
             data={Events}
             renderItem={renderItem}
             keyExtractor={(item,index)=>index+item}
             showsVerticalScrollIndicator={false}
+            scrollEnabled={false}
             />
         </Center>
+        </ScrollView>
     )
 }
 const Join=()=>{
-    const renderItem=({item})=>item.join?<EventItem event={item}/>:null;
+    const renderItem=({item})=>item.join?<JoinItem event={item}/>:null;
 
     return(
         <Center>

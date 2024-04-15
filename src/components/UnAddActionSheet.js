@@ -11,26 +11,26 @@ export default unAddActionSheet=()=>{
     const {goBack} =useNavigation();
 
     return(
-        <Box pl={12}>
+        <Box pl={12} >
           <AntDesign
+          style={[{alignSelf:"flex-end"},{marginRight:20}]}
           name="closecircleo"
           size={25}
           color={colors.primary500}
           onPress={handleClose}
           />
-
           <Actionsheet isOpen={showActionSheet} onClose={handleClose} zIndex={999}>
             <ActionsheetBackdrop/>
-            <ActionsheetContent>
+            <ActionsheetContent bg={colors.lightsurface} pb={32}>
                 <ActionsheetDragIndicatorWrapper>
                     <ActionsheetDragIndicator />
                 </ActionsheetDragIndicatorWrapper>
-                <Text py={20}>確定要離開嗎?</Text>
+                <Text size="lg" py={20} color={colors.primary500} >確定要離開嗎?</Text>
                 <ActionsheetItem onPress={handleClose}>
-                    <ActionsheetItemText>繼續編輯</ActionsheetItemText>
+                    <ActionsheetItemText size="lg" color={colors.primary800} >繼續編輯</ActionsheetItemText>
                 </ActionsheetItem>
                 <ActionsheetItem onPress={()=>goBack()}>
-                    <ActionsheetItemText color="red" >離開</ActionsheetItemText>
+                    <ActionsheetItemText color="red"  size="lg" >離開</ActionsheetItemText>
                 </ActionsheetItem>
             </ActionsheetContent>
         </Actionsheet>

@@ -5,6 +5,8 @@ import { Pressable } from "@gluestack-ui/themed";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import AntDesign from "react-native-vector-icons/AntDesign"
+import { useDispatch,useSelector } from "react-redux";
+import {selectMessage ,readMessage} from "../redux/messageSlice"
 
 import HomeStack from "./HomeStack"
 import ChatStack from "./ChatStack";
@@ -18,7 +20,9 @@ const Tab = createBottomTabNavigator();
 export default () =>{ 
     const {colors}=useTheme();
 
-    const [notify,setNotify]=useState(true);
+    const hasRead=useSelector(selectMessage);
+    const dispatch=useDispatch();
+    const [notify,setNotify]=useState(hasRead);
     let notifyIcon=notify?"bell-badge":"bell";
     const checkNotify= ()=>setNotify(!notify);
 
@@ -41,18 +45,17 @@ export default () =>{
         >
             <Tab.Screen name="home" component={HomeStack} 
             options={{
-                title:"找活動",
+                title:"探索",
                 tabBarIcon:({color})=>( <AntDesign name='find' color={color} size={26}/>)
             }}
             />
             <Tab.Screen name="save" component={SaveStack} 
             options={{
                 title:"我的活動",
-                headerShown:true,
                 headerRight:()=>(
                     <Pressable pr={12}>
                         <MaterialCommunityIcons name={notifyIcon} size={24} color={colors.primary800} 
-                        onPress={notify?checkNotify:null} /> 
+                        onPress={notify?dispatch(readMessage):null} /> 
                     </Pressable>
                 ),
                 tabBarIcon:({color})=>( <AntDesign name='book' color={color} size={26}/>)
