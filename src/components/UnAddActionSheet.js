@@ -13,9 +13,9 @@ export default unAddActionSheet=()=>{
     return(
         <Box pl={12}>
           <AntDesign
-          name="left"
+          name="closecircleo"
           size={25}
-          color={colors.primary800}
+          color={colors.primary500}
           onPress={handleClose}
           />
 

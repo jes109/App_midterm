@@ -9,7 +9,7 @@ export default AddEventScreen = () =>{
     return(
         <ScrollView bg={colors.surface}>
         <Box alignItems="center"> 
-            <Box bg={colors.lightsurface} w={350}rounded="$2xl" my={20} alignItems="center">
+            <Box bg={colors.lightsurface} w={350} rounded="$2xl" my={20} alignItems="center">
                 <TextInput style={[styles.maininput,{backgroundColor:colors.midsurface},{color:colors.primary800}]} placeholder="活動名稱"/>
                 <TouchableOpacity>
                     <Box mt={20} w={300} h={200} borderColor="gray" borderWidth={2} rounded="$2xl" alignItems="center" justifyContent="center">
@@ -17,10 +17,10 @@ export default AddEventScreen = () =>{
                         <Text color="gray">update image</Text>
                     </Box>
                 </TouchableOpacity>
-                <Box px={12} bg={colors.midsurface} w={300} h={320} rounded="$3xl" mt={20} mb={80}>
+                <Box px={12} pb={20} bg={colors.midsurface} w={300} h="auto" rounded="$3xl" mt={20} mb={80}>
                     <HStack alignItems="center">
                         <Text color={colors.primary800} size="md" bold="true">日期 :</Text>
-                        <TextInput style={[styles.secondInput,{color:colors.primary800}]} placeholder="ex.2023/04/14"/>
+                        <TextInput style={[styles.secondInput,{color:colors.primary800}]} maxLength={10} placeholder="ex.2023/04/14"/>
                     </HStack>
                     <HStack alignItems="center">
                         <Text color={colors.primary800} size="md" bold="true">地點 :</Text>
@@ -30,15 +30,14 @@ export default AddEventScreen = () =>{
                         <Text color={colors.primary800} size="md" bold="true">人數 :</Text>
                         <TextInput style={[styles.secondInput,{color:colors.primary800}]} placeholder="人數"/>
                     </HStack>
-                    <HStack alignItems="center">
-                        <Text color={colors.primary800} size="md" bold="true">敘述 :</Text>
-                        <TextInput style={[styles.secondInput,{color:colors.primary800}]} placeholder="敘述"/>
+                    <HStack alignItems="flex-start">
+                        <Text mt={16} color={colors.primary800} size="md" bold="true">敘述 :</Text>
+                        <TextInput scrollEnabled={false} numberOfLines={2} multiline={true} style={[styles.textInput,{color:colors.primary800}]} placeholder="敘述"/>
                     </HStack>
                 </Box>
                 <Pressable bg={colors.primaryContainer} style={styles.fab} py={12} rounded="$full">
                 <HStack flex={1} justifyContent="center">
                     <Icon as={AddIcon} color={colors.primary800}/>
-                    <Text color={colors.primary800} bold="true">新增</Text>
                 </HStack>
             </Pressable>
             </Box>
@@ -59,8 +58,17 @@ const styles=StyleSheet.create({
     secondInput:{
         borderRadius:28,
         padding:16,
-        width:300,
+        width:240,
         fontSize:16,
+        //backgroundColor:"gray"
+    },
+    textInput:{
+        borderRadius:28,
+        padding:16,
+        paddingTop:16,
+        width:240,
+        fontSize:16,
+        //backgroundColor:"gray"
     },
     fab:{
         width:80,
