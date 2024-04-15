@@ -4,18 +4,19 @@ import { StyleSheet } from "react-native";
 import { View, Pressable, Image } from "@gluestack-ui/themed";
 import { useTheme } from "@gluestack-ui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { useNavigationContext } from "./NavigationContext";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from "@react-navigation/drawer";
 
 import ChatScreen from "../screens/ChatScreen";
 import ChatDetailScreen from "../screens/ChatDetailScreen";
-//import Drawer from "./Drawer"
+import DrawerList from "./DrawerList";
 
 const Stack = createStackNavigator();
 
 export default ChatStack = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation("DrawerList");
 
     return(
         <Stack.Navigator
