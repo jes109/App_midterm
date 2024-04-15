@@ -51,7 +51,7 @@ export default () =>{
             />
             <Tab.Screen name="save" component={SaveStack} 
             options={{
-                title:"",
+                title:"我的活動",
                 headerRight:()=>(
                     <Pressable pr={12}>
                         <MaterialCommunityIcons name={notifyIcon} size={24} color={colors.primary800} 

@@ -18,7 +18,7 @@ export default JoinItem =({event})=>{
 
     return(
         <Box w={350} rounded="$xl" overflow="hidden" mb={20} alignSelf="center">
-            <TouchableOpacity activeOpacity={0.5} onPress={()=>navigate("saveDetail",event)}>
+            <TouchableOpacity activeOpacity={0.5} onPress={()=>navigate("JoinDetail",event)}>
                 <Image source={{uri:`${event.img}`}} alt="bird" w="$full" h={132}/>
             </TouchableOpacity>
             <Box bg={colors.card} pt={12} pb={12} px={8} >
@@ -27,8 +27,13 @@ export default JoinItem =({event})=>{
                         <Text fontSize={20} bold="true" color={colors.primary800}>{event.title}</Text>
                         <Text fontSize={16} bold="true" mt={8} color={colors.primary500}>{event.location}</Text>
                     </VStack>
-                    <Box justifyContent="flex-end">
-                    <MaterialCommunityIcons style={styles.btn} name={markIcon} size={28} color={markIconColor} onPress={setmark} />
+                    <Box alignItems="flex-end">
+                        <Box bg={colors.primaryContainer} rounded="$full" mb={4} >
+                            <Text color={colors.primary800} py={4} px={8} bold={true}>倒數3天</Text>
+                        </Box>
+                        <TouchableOpacity>
+                            <MaterialCommunityIcons name='chat-processing-outline' size={28} color={colors.primary800}/>
+                        </TouchableOpacity>
                     </Box>
                 </HStack>
 

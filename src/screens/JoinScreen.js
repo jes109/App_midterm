@@ -3,11 +3,11 @@ import { useTheme } from "@react-navigation/native";
 import { Box,Badge,BadgeText,Image,Text,HStack,VStack, ScrollView, Fab,FabIcon,FabLabel, AddIcon, Pressable, Icon, Center} from "@gluestack-ui/themed";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
-export default EventDetailScreen = ({route}) => {
+export default JoinScreen = ({route}) => {
     const { colors } = useTheme();
     const {title,location,img,date,limit,number,trait,description,join}=route.params;
     const [num,setNum]=useState(number);
-    const [hasJoin,setHasJoin]=useState(join);
+    const [hasJoin,setHasJoin]=useState(!join);
     const opacity=!hasJoin?1:0.6;
 
     return(
@@ -28,10 +28,10 @@ export default EventDetailScreen = ({route}) => {
                     <Text color="black" mt={20} size="md" bold="true" >{description}</Text>
                 </Box>
             </ScrollView>
-            <TouchableOpacity onPress={()=>{setNum(num+1);setHasJoin(true)}} activeOpacity={0.6} disabled={hasJoin}>
-                <HStack rounded="$full" py={12} style={styles.fab} bg={colors.primaryContainer} flex={1} justifyContent="center" opacity={opacity}>
+            <TouchableOpacity onPress={()=>{setNum(num-1);setHasJoin(true)}} activeOpacity={0.6} disabled={hasJoin}>
+                <HStack rounded="$full" py={12} style={styles.fab} bg={colors.focus} flex={1} justifyContent="center" opacity={opacity}>
                     <Icon as={AddIcon} color={colors.primary800}/>
-                    <Text color={colors.primary800} bold="true">參加</Text>
+                    <Text color={colors.primary800} bold="true">退出</Text>
                 </HStack>
             </TouchableOpacity>
         </Box>
@@ -55,10 +55,3 @@ const styles=StyleSheet.create({
         elevation: 10,
     }
 })
-
-/*
-<Fab bg={colors.primaryContainer} >
-                    <FabIcon color={colors.primary800} as={AddIcon} />
-                    <FabLabel color={colors.primary800} fontWeight="$bold" >參加</FabLabel>
-                </Fab>
-*/ 

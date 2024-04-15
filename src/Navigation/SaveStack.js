@@ -9,6 +9,7 @@ import {selectMessage ,readMessage} from "../redux/messageSlice"
 
 import SaveScreen from "../screens/SaveScreen";
 import EventDetailScreen from "../screens/EventDetailScreen";
+import JoinScreen from "../screens/JoinScreen";
 
 
 const Stack = createStackNavigator();
@@ -60,6 +61,15 @@ export default SaveStack=()=>{
                         <MaterialCommunityIcons name={markIcon} size={28} color={markIconColor} onPress={setmark} />
                     </Pressable>
                     )
+            }}
+            />
+            <Stack.Screen name="JoinDetail" component={JoinScreen} 
+             options={{
+                title:"",
+                headerLeft:()=>(
+                    <Pressable pl={12}>
+                        <AntDesign name="left" size={24} color={colors.primary800} onPress={()=>navigate("Save")} /> 
+                    </Pressable>),
             }}
             />
         </Stack.Navigator>
