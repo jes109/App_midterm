@@ -8,7 +8,10 @@ const Stack = createStackNavigator();
 
 export default SaveStack=()=>{
     return(
-        <Stack.Navigator>
+        <Stack.Navigator
+        screenOptions={{
+            headerShown:false
+        }}>
             <Stack.Screen name="Save" component={SaveScreen} 
             options={{
                 title:"我的"

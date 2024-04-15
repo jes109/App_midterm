@@ -21,7 +21,7 @@ export default EventDetail = ({route}) => {
                         </VStack>
                         <Text mt={96} px={12} py={4} size="md" rounded="$2xl" bold="true" color={colors.primary500}  borderColor={colors.primary500} borderWidth={1} >目前參與人數:{number}</Text>
                     </HStack>
-                    <Text mt={20} size="md" bold="true" >{description}</Text>
+                    <Text color="black" mt={20} size="md" bold="true" >{description}</Text>
                 </Box>
             </ScrollView>
             <Pressable bg={colors.primaryContainer} style={styles.fab} py={12} rounded="$full">
@@ -48,7 +48,6 @@ const styles=StyleSheet.create({
         },
         shadowOpacity: 0.2,
         shadowRadius: 3,
-
         elevation: 10,
     }
 })

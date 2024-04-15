@@ -8,6 +8,8 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 
 import HomeScreen from "../screens/HomeScreen"
 import EventDetailScreen from "../screens/EventDetailScreen";
+import AddEventScreen from "../screens/AddEventScreen";
+import UnAddActionSheet from "../components/UnAddActionSheet";
 
 const Stack = createStackNavigator();
 
@@ -29,9 +31,7 @@ export default Home = () => {
     return(
         <Stack.Navigator
         screenOptions={{
-            headerStyle:{
-                backgroundColor:colors.header,
-            },
+            headerStyle:{ backgroundColor:colors.header},
             headerTitleStyle:{
                 color:colors.primary800,
                 fontSize:20
@@ -50,6 +50,8 @@ export default Home = () => {
             />
             <Stack.Screen name="detail" component={EventDetailScreen} 
              options={{
+                title:"",
+                headerStyle:{backgroundColor:colors.darksurface},
                 headerLeft:()=>(
                     <Pressable pl={12}>
                         <AntDesign name="left" size={24} color={colors.primary800} onPress={()=>goBack()} /> 
@@ -59,13 +61,16 @@ export default Home = () => {
                     <Pressable pr={12}>
                         <MaterialCommunityIcons name={markIcon} size={28} color={markIconColor} onPress={setmark} />
                     </Pressable>
-                ),
-                title:"",
-                headerStyle:{
-                    backgroundColor:colors.darksurface
-                }
+                )
             }}
             />
+            <Stack.Screen name="add" component={AddEventScreen}
+            options={{
+                title:"發起活動",
+                headerLeft:()=>(
+                    <UnAddActionSheet/>
+                )
+            }}/>
         </Stack.Navigator>
     )
 }
