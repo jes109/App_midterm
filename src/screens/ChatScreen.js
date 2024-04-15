@@ -14,7 +14,6 @@ export default ChatScreen = ({navigation}) => {
             <ScrollView bg={colors.card} flex={1}>
                 <Center>
                     <ChatList/>
-                    <Image rounded="$xl" source={"https://github.com/jes109/App_midterm/blob/master/src/img/cover.png?raw=true"} alt="d" h={60} w={60}/>
                 </Center>
             </ScrollView>
     )

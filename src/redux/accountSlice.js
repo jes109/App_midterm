@@ -4,8 +4,6 @@ const initialState={
     general:{
         name:"",
         email:"",
-        adrs:"",
-        tel:""
     },
     login:{
         hasLogin:false

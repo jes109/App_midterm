@@ -21,7 +21,7 @@ const Navigation = () => {
         >
             {
                 !haslogin?
-                (<LoginScreen/>)
+                (<LoginScreen theme={MyTheme}/>)
                 :
                 (<NavigationContainer theme={MyTheme}>
                 <BottomTab />

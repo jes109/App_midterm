@@ -5,12 +5,19 @@ import { config } from "@gluestack-ui/config";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { Switch, Button, Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent, ActionsheetItem, ActionsheetItemText, GluestackUIProvider } from "@gluestack-ui/themed";
 import { useNavigation, useTheme } from "@react-navigation/native";
+import { useSelector,useDispatch } from "react-redux";
+import {selectLogin,logout} from "../redux/accountSlice"
+
 //import { CommonActions } from "@react-navigation/native";
 //import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default SettingDetail = () =>{
     const navigation = useNavigation();
     const [showActionsheet, setShowActionsheet] = React.useState(false);
+
+    const dispatch=useDispatch();
+    const hasLogin =useSelector(selectLogin);
+
     const handleClose = () => setShowActionsheet(!showActionsheet);
     const HorizontalLine = () => {
         return (
@@ -19,7 +26,7 @@ export default SettingDetail = () =>{
     };
     const close = () => {
         setShowActionsheet(false);
-        navigation.navigate("Login");
+        dispatch(logout());
     };
     //const {goBack} =useNavigation();
     const {colors} = useTheme();

@@ -29,7 +29,7 @@ export default unAddActionSheet=()=>{
                 <ActionsheetItem onPress={handleClose}>
                     <ActionsheetItemText size="lg" color={colors.primary800} >繼續編輯</ActionsheetItemText>
                 </ActionsheetItem>
-                <ActionsheetItem onPress={()=>goBack()}>
+                <ActionsheetItem onPress={()=>{setShowActionsheet(false);goBack()}}>
                     <ActionsheetItemText color="red"  size="lg" >離開</ActionsheetItemText>
                 </ActionsheetItem>
             </ActionsheetContent>
