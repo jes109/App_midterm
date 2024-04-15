@@ -2,9 +2,10 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import { View, Pressable, Image } from "@gluestack-ui/themed";
-import { useTheme } from "@gluestack-ui/themed";
+import {useTheme } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from "@react-navigation/drawer";
 
@@ -16,6 +17,7 @@ const Stack = createStackNavigator();
 
 export default ChatStack = () => {
     const navigation = useNavigation();
+    const {colors}=useTheme();
 
     return(
         <Stack.Navigator
@@ -33,30 +35,18 @@ export default ChatStack = () => {
                 headerRight: () => (
                     <View style={styles.headerStyle}>
                         <View style={styles.icons}>
-                            <Pressable style={{marginRight: 10}}>
-                                <Image 
-                                    style={styles.iconl} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/group_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
-                                    alt="group"
-                                />
+                            <Pressable style={{marginRight: 8}}>
+                            <MaterialIcons name="group" size={28} color={colors.primary800}/>
                             </Pressable>
                             <Pressable>
-                                <Image 
-                                    style={styles.iconr} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/edit_square_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
-                                    alt="post"
-                                />
+                            <MaterialCommunityIcons name="square-edit-outline" size={28} color={colors.primary800}/>
                             </Pressable>
                         </View>
                     </View>
                 ),
                 headerLeft: () => (
-                    <Pressable onPress={() => navigation.toggleDrawer()}>
-                        <Image 
-                            style={styles.icon}
-                            source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/icon_menu%20(1).png?raw=true"}}
-                            alt="icon"
-                        />
+                    <Pressable onPress={() => navigation.toggleDrawer()} pl={12}>
+                        <MaterialCommunityIcons name="menu" size={28} color={colors.primary800}/>
                     </Pressable>
                    // <MaterialCommunityIcons 
                    //     name={"menu"}
@@ -76,7 +66,7 @@ const styles=StyleSheet.create(
         headerStyle: {
             justifyContent: "space-between",
             alignItems: "center",
-            paddingHorizontal: 30,
+            paddingHorizontal: 12,
             //paddingVertical: 20,
             flexDirection: "row"
         },

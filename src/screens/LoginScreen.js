@@ -43,24 +43,6 @@ import { TouchableOpacity } from "react-native";
             <FormControl mb={5} isRequired w={280}>
                 <Input variant="underlined">
                 <InputSlot pr={12}>
-                <AntDesign name="user" size={24} color="#194200"/>
-                </InputSlot>
-                    <InputField 
-                    placeholder="input your name"
-                    value={name}
-                    onChangeText={(name)=>{
-                        setName(name)
-                    }}
-                    />
-                </Input>
-                <FormControlError isInvalid={nameIsError}>
-                    <FormControlErrorIcon as={AlertCircleIcon}/> 
-                    <FormControlErrorText>You are wrong!</FormControlErrorText>
-                </FormControlError>
-            </FormControl>
-            <FormControl mb={5} isRequired w={280}>
-                <Input variant="underlined">
-                <InputSlot pr={12}>
                 <AntDesign name="mail" size={24} color="#194200"/>
                 </InputSlot>
                     <InputField 
@@ -71,6 +53,24 @@ import { TouchableOpacity } from "react-native";
                     />
                 </Input>
                 <FormControlError isInvalid={emailIsError}>
+                    <FormControlErrorIcon as={AlertCircleIcon}/> 
+                    <FormControlErrorText>You are wrong!</FormControlErrorText>
+                </FormControlError>
+            </FormControl>
+            <FormControl mb={5} isRequired w={280}>
+                <Input variant="underlined">
+                <InputSlot pr={12}>
+                <AntDesign name="lock1" size={24} color="#194200"/>
+                </InputSlot>
+                    <InputField 
+                    placeholder="input your password"
+                    value={name}
+                    onChangeText={(name)=>{
+                        setName(name)
+                    }}
+                    />
+                </Input>
+                <FormControlError isInvalid={nameIsError}>
                     <FormControlErrorIcon as={AlertCircleIcon}/> 
                     <FormControlErrorText>You are wrong!</FormControlErrorText>
                 </FormControlError>
