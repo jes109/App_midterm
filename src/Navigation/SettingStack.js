@@ -8,7 +8,7 @@ import HomeScreen from "../screens/HomeScreen";
 
 const Stack = createStackNavigator();
 
-export default ChatStack=()=>{
+export default SettingStack=()=>{
     return(
         <Stack.Navigator
         screenOptions={{
