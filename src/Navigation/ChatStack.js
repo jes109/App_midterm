@@ -13,7 +13,7 @@ import ChatDetailScreen from "../screens/ChatDetailScreen";
 //import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();
-const navigation = useNavigation();
+//const navigation = useNavigation();
 
 export default ChatStack = () => {
 
@@ -50,14 +50,14 @@ export default ChatStack = () => {
                         </View>
                     </View>
                 ),
-                headerLeft: () => (
-                    <MaterialCommunityIcons 
-                        name={"menu"}
-                        size={30}
-                        onPress={() => navigation.openDrawer}
-                        style={{marginRight: 20}}
-                    />
-                )
+                //headerLeft: () => (
+                //    <MaterialCommunityIcons 
+                //        name={"menu"}
+                //        size={30}
+                //        onPress={() => navigation.openDrawer}
+                //        style={{marginRight: 20}}
+                //    />
+                //)
             }}
             />
         </Stack.Navigator>
