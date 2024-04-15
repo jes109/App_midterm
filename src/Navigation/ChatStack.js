@@ -13,9 +13,9 @@ import ChatDetailScreen from "../screens/ChatDetailScreen";
 //import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();
+const navigation = useNavigation();
 
-export default function ChatStack() {
-    const navigation = useNavigation();
+export default ChatStack = () => {
 
     return(
         <Stack.Navigator

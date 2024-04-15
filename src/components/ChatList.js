@@ -26,6 +26,7 @@ export default ChatList = () =>{
         data={Chat}
         renderItem={renderItem}
         keyExtractor={(item,index)=>index+item}
+        scrollEnabled={false}
         />
     )
 }
