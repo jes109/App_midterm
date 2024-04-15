@@ -1,24 +1,22 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { Box, Image, View, Text, Pressable } from "@gluestack-ui/themed";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default ChatItem =({chat})=>{
     const {navigate} = useNavigation();
+    const {colors}=useTheme();
     return(
+    <TouchableOpacity activeOpacity={0.6}>
         <View style={styles.card}>
-            <Pressable>
-                <Image 
-                    style={styles.icon} 
-                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
-                    alt="user"
-                />
-            </Pressable>
+            <MaterialCommunityIcons name="account-circle" size={56}/>
             <View style={styles.text}>
-                <Text style={styles.title}>{chat.title}</Text>
-                <Text style={styles.message}>{chat.message}</Text>
+                <Text style={styles.title}  color={colors.primary800}>{chat.title}</Text>
+                <Text style={styles.message} color={colors.primary500}>{chat.message}</Text>
             </View>
         </View>
+    </TouchableOpacity>
     );
 }
 
@@ -42,7 +40,8 @@ const styles=StyleSheet.create(
             paddingVertical: 15
         },
         text: {
-            marginLeft: 20
+            marginLeft: 20,
+            gap:8
         }
     }
 );

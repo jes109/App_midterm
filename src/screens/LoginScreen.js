@@ -37,28 +37,10 @@ import { TouchableOpacity } from "react-native";
         <Box bg="#EDF2E7" flex={1}>
             <Center mt={120} >
             <Image source={"https://github.com/jes109/App_midterm/blob/master/src/img/logo.png?raw=true"} alt="logo" w={120} resizeMode="contain"/>
-            <Text fontSize={40} color="#194200">Sign in</Text>
+            <Text py={12} fontSize={40} color="#194200">Sign in</Text>
             </Center>
-        <VStack space={2} mt={20} p={28} alignSelf="center" bg="#E0F2BB" rounded="$3xl" >
-            <FormControl mb={5} isRequired w={280} mb={20}>
-                <Input variant="underlined">
-                <InputSlot pr={12}>
-                <AntDesign name="user" size={24} color="#194200"/>
-                </InputSlot>
-                    <InputField 
-                    placeholder="input your name"
-                    value={name}
-                    onChangeText={(name)=>{
-                        setName(name)
-                    }}
-                    />
-                </Input>
-                <FormControlError isInvalid={nameIsError}>
-                    <FormControlErrorIcon as={AlertCircleIcon}/> 
-                    <FormControlErrorText>You are wrong!</FormControlErrorText>
-                </FormControlError>
-            </FormControl>
-            <FormControl mb={5} isRequired w={280} mb={20}>
+        <VStack gap={20} space={2} mt={20} px={28} py={40} alignSelf="center" bg="#E0F2BB" rounded="$3xl" >
+            <FormControl mb={5} isRequired w={280}>
                 <Input variant="underlined">
                 <InputSlot pr={12}>
                 <AntDesign name="mail" size={24} color="#194200"/>
@@ -75,11 +57,30 @@ import { TouchableOpacity } from "react-native";
                     <FormControlErrorText>You are wrong!</FormControlErrorText>
                 </FormControlError>
             </FormControl>
+            <FormControl mb={5} isRequired w={280}>
+                <Input variant="underlined">
+                <InputSlot pr={12}>
+                <AntDesign name="lock1" size={24} color="#194200"/>
+                </InputSlot>
+                    <InputField 
+                    placeholder="input your password"
+                    value={name}
+                    onChangeText={(name)=>{
+                        setName(name)
+                    }}
+                    />
+                </Input>
+                <FormControlError isInvalid={nameIsError}>
+                    <FormControlErrorIcon as={AlertCircleIcon}/> 
+                    <FormControlErrorText>You are wrong!</FormControlErrorText>
+                </FormControlError>
+            </FormControl>
             <TouchableOpacity onPress={()=>{if(!nameIsError && !emailIsError)dispatch(login())}}>
-                <Box w="$full" py={8} rounded="$full" bg="#194200" mt={20}>
+                <Box w="$full" py={8} rounded="$full" bg="#194200" >
                 <Text color="#fff" size="2xl" textAlign="center">Sign in</Text>
                 </Box>
             </TouchableOpacity>
+            <Text color="#707769" >Don't have an account? <Text  underline="true"  ml={8} bold="true" color="#FFC700">SIGN UP</Text></Text>
         </VStack>
         </Box>
     )

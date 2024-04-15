@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { HStack } from "@gluestack-ui/themed";
+import { HStack, VStack } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { Switch, Button, Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent, ActionsheetItem, ActionsheetItemText, GluestackUIProvider } from "@gluestack-ui/themed";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import { useSelector,useDispatch } from "react-redux";
 import {selectLogin,logout} from "../redux/accountSlice"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 //import { CommonActions } from "@react-navigation/native";
 //import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
@@ -39,69 +40,33 @@ export default SettingDetail = () =>{
     return(
             <View>
                 <View style={styles.card}>
-                    <Pressable>
-                        <Image 
-                            style={styles.icon} 
-                            source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/account_circle_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
-                            alt="user"
-                        />
-                    </Pressable>
+                    <MaterialCommunityIcons name="account-circle" size={60}/>
                     <View style={styles.info}>
                         <View style={styles.user}>
                             <Text style={styles.text}>User</Text>
-                            <View style={styles.stars}>
-                                <Pressable>
-                                    <Image 
-                                        style={styles.star} 
-                                        source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/stars-2.png?raw=true"}}
-                                        alt="star"
-                                    />
-                                </Pressable>
-                                <Pressable>
-                                    <Image 
-                                        style={styles.star} 
-                                        source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/stars-2.png?raw=true"}}
-                                        alt="star"
-                                    />
-                                </Pressable>
-                                <Pressable>
-                                    <Image 
-                                        style={styles.star} 
-                                        source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/stars-2.png?raw=true"}}
-                                        alt="star"
-                                    />
-                                </Pressable>
-                                <Pressable>
-                                    <Image 
-                                        style={styles.star} 
-                                        source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/stars-1.png?raw=true"}}
-                                        alt="star"
-                                    />
-                                </Pressable>
-                                <Pressable>
-                                    <Image 
-                                        style={styles.star} 
-                                        source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/stars-1.png?raw=true"}}
-                                        alt="star"
-                                    />
-                                </Pressable>
-                            </View>
+                            <HStack ml={12}>
+                                <MaterialCommunityIcons name="star-circle" size={24} color={colors.primary800}/>
+                                <MaterialCommunityIcons name="star-circle" size={24} color={colors.primary800}/>
+                                <MaterialCommunityIcons name="star-circle" size={24} color={colors.primary800}/>
+                                <MaterialCommunityIcons name="star-circle-outline" size={24} color={colors.primary200}/>
+                                <MaterialCommunityIcons name="star-circle-outline" size={24} color={colors.primary200}/>
+                            </HStack>
                         </View>
-                        <Text style={styles.hash}>#資深登山客 #自行車探險家 #攀岩新手</Text>
+                        <Text mt={8} style={styles.hash} >#資深登山客 #自行車探險家 #攀岩新手</Text>
                     </View>
                 </View>
                 <View style={styles.follow}>
                     <View style={styles.block}>
+                        <Text style={styles.num} color={colors.primary800} bold="true">5</Text>
                         <Text style={styles.num}>發佈活動</Text>
-                        <Text style={styles.num}>5</Text>
                     </View>
                     <View style={styles.block}>
+                        <Text style={styles.num} color={colors.primary800} bold="true">45</Text>
                         <Text style={styles.num}>參加過</Text>
-                        <Text style={styles.num}>45</Text>
                     </View>
                     <View style={styles.block}>
+                        <Text style={styles.num} color={colors.primary800} bold="true">3</Text>
                         <Text style={styles.num}>徽章</Text>
-                        <Text style={styles.num}>3</Text>
                     </View>
                 </View>
                 
@@ -109,21 +74,13 @@ export default SettingDetail = () =>{
                     <View style={styles.btnup}>
                         <Box style={styles.btnleft} bg={colors.primary200}>
                             <Pressable>
-                                <Image 
-                                    style={styles.btniconsave} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/Vector-1.png?raw=true"}}
-                                    alt="saved"
-                                />
+                            <MaterialCommunityIcons name="bookmark-outline" size={40} color={colors.primary800}/>
                             </Pressable>
                             <Text style={styles.word}>我的收藏</Text>
                         </Box>
                         <Box style={styles.btnright} bg={colors.primary200}>
                             <Pressable>
-                                <Image 
-                                    style={styles.btniconlike} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/Vector.png?raw=true"}}
-                                    alt="like"
-                                />
+                            <MaterialCommunityIcons name="heart-outline" size={40} color={colors.primary800}/>
                             </Pressable>
                             <Text style={styles.wordtwo}>喜歡</Text>
                         </Box>
@@ -131,21 +88,13 @@ export default SettingDetail = () =>{
                     <View style={styles.btndown}>
                         <Box style={styles.btnleft} bg={colors.primary200}>
                             <Pressable>
-                                <Image 
-                                    style={styles.btnicon} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/edit_square_FILL0_wght400_GRAD0_opsz24%202.png?raw=true"}}
-                                    alt="my posts"
-                                />
+                            <MaterialCommunityIcons name="square-edit-outline" size={40} color={colors.primary800}/>
                             </Pressable>
                             <Text style={styles.wordpost}>我的貼文</Text>
                         </Box>
                         <Box style={styles.btnright} bg={colors.primary200}>
                             <Pressable>
-                                <Image 
-                                    style={styles.btnicon} 
-                                    source={{uri: "https://github.com/jes109/App_midterm/blob/master/src/img/help_FILL0_wght400_GRAD0_opsz24%201.png?raw=true"}}
-                                    alt="help"
-                                />
+                            <MaterialCommunityIcons name="help-circle-outline" size={40} color={colors.primary800}/>
                             </Pressable>
                             <Text style={styles.wordtwo}>幫助</Text>
                         </Box>
@@ -315,11 +264,13 @@ const styles=StyleSheet.create(
         },
         block: {
             flexDirection: "column",
-            justifyContent: "center"
+            justifyContent: "center",
+            gap:8
         },
         num: {
             fontSize: 16,
-            justifyContent: "center"
+            textAlign:"center"
+           // justifyContent: "center"
         },
         text: {
             fontSize: 25,
@@ -327,7 +278,7 @@ const styles=StyleSheet.create(
         card: {
             marginTop: 40,
             flexDirection: "row",
-            alignItems: "center",
+            //alignItems: "center",
         },
         icon: {
             height: 50,
@@ -343,15 +294,14 @@ const styles=StyleSheet.create(
             marginLeft: 15
         },
         info:{
-            flexDirection: "column",
-            marginLeft: 15
+            marginLeft: 8
         },
         user: {
             flexDirection: "row",
             alignItems: "center"
         },
         hash: {
-            fontSize: 12,
+            fontSize: 15,
             color: "gray"
         }
     }
