@@ -223,7 +223,7 @@ const styles=StyleSheet.create(
             height: 60,
             width: 160,
             borderRadius: 12,
-            marginLeft: 25
+            marginHorizontal: 5
         },
         btnright: {
             flexDirection: "row",
@@ -235,7 +235,7 @@ const styles=StyleSheet.create(
             height: 60,
             width: 160,
             borderRadius: 12,
-            marginRight: 25
+            marginHorizontal: 5
         },
         btnicon: {
             height: 40,
@@ -279,6 +279,7 @@ const styles=StyleSheet.create(
             marginTop: 40,
             flexDirection: "row",
             //alignItems: "center",
+            marginHorizontal: 5
         },
         icon: {
             height: 50,
@@ -301,7 +302,7 @@ const styles=StyleSheet.create(
             alignItems: "center"
         },
         hash: {
-            fontSize: 15,
+            fontSize: 14,
             color: "gray"
         }
     }
