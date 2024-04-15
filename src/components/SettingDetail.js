@@ -1,8 +1,11 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent } from "@gluestack-ui/themed";
-import { useNavigation } from "@react-navigation/native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import { useState } from "react";
+import { HStack } from "@gluestack-ui/themed";
+import { config } from "@gluestack-ui/config";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Switch, Button, Box, View, Pressable, Image, Text, Center, Actionsheet, ActionsheetBackdrop, ActionsheetContent, ActionsheetItem, ActionsheetItemText, GluestackUIProvider } from "@gluestack-ui/themed";
+import { useNavigation, useTheme } from "@react-navigation/native";
+//import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
 export default SettingDetail = () =>{
     const navigation = useNavigation();
@@ -12,6 +15,12 @@ export default SettingDetail = () =>{
         return (
             <View style={styles.line} />
         );
+    };
+    const {colors} = useTheme();
+    const [colorMode, setColorMode] = useState("white");
+    const toggleColorMode = () => {
+        if(colorMode == "white") setColorMode("black");
+        else setColorMode("white");
     };
 
     return(
@@ -70,24 +79,44 @@ export default SettingDetail = () =>{
                 </View>
                 <View style={styles.follow}>
                     <View style={styles.block}>
-                        <Text style={styles.num}>5</Text>
                         <Text style={styles.num}>發佈活動</Text>
+                        <Text style={styles.num}>5</Text>
                     </View>
                     <View style={styles.block}>
-                        <Text style={styles.num}>45</Text>
                         <Text style={styles.num}>參加過</Text>
+                        <Text style={styles.num}>45</Text>
                     </View>
                     <View style={styles.block}>
-                        <Text style={styles.num}>3</Text>
                         <Text style={styles.num}>徽章</Text>
+                        <Text style={styles.num}>3</Text>
                     </View>
                 </View>
-                <View style={styles.mode}>
-                    <Text>Light Mode</Text>
-                </View>
+                <Center
+                    shadow={2} width="90%"
+                    mt="$2" px="$2" py="$4"
+                    bg={colorMode} borderRadius={3}
+                    alignSelf="center"
+                >
+                    <HStack alignItems="center">
+                        <Text size="lg" px="$2">
+                            {colorMode == "light" ? "Light Mode" : "Dark Mode"}
+                        </Text>
+                        <Switch
+                            name="light Mode"
+                            value={colorMode === "white"}
+                            trackColor={{
+                                false: "black",
+                                true: "white"
+                            }}
+                            onToggle={toggleColorMode}
+                            accessibilityLabel="display-mode"
+                            accessibilityHint="light or dark mode"
+                        />
+                    </HStack>
+                </Center>
                 <View style={styles.btns}>
                     <View style={styles.btnup}>
-                        <View style={styles.btnleft}>
+                        <Box style={styles.btnleft} bg={colors.primary200}>
                             <Pressable>
                                 <Image 
                                     style={styles.btniconsave} 
@@ -96,8 +125,8 @@ export default SettingDetail = () =>{
                                 />
                             </Pressable>
                             <Text style={styles.word}>我的收藏</Text>
-                        </View>
-                        <View style={styles.btnright}>
+                        </Box>
+                        <Box style={styles.btnright} bg={colors.primary200}>
                             <Pressable>
                                 <Image 
                                     style={styles.btniconlike} 
@@ -106,10 +135,10 @@ export default SettingDetail = () =>{
                                 />
                             </Pressable>
                             <Text style={styles.word}>喜歡</Text>
-                        </View>
+                        </Box>
                     </View>
                     <View style={styles.btndown}>
-                        <View style={styles.btnleft}>
+                        <Box style={styles.btnleft} bg={colors.primary200}>
                             <Pressable>
                                 <Image 
                                     style={styles.btnicon} 
@@ -118,8 +147,8 @@ export default SettingDetail = () =>{
                                 />
                             </Pressable>
                             <Text style={styles.wordpost}>我的貼文</Text>
-                        </View>
-                        <View style={styles.btnright}>
+                        </Box>
+                        <Box style={styles.btnright} bg={colors.primary200}>
                             <Pressable>
                                 <Image 
                                     style={styles.btnicon} 
@@ -128,30 +157,35 @@ export default SettingDetail = () =>{
                                 />
                             </Pressable>
                             <Text style={styles.word}>幫助</Text>
-                        </View>
+                        </Box>
                     </View>
                 </View>
-                <Center>
-                    <View style={styles.logout}>
-                        <Center>
-                            <Text style={styles.logoutword}>Log Out</Text>
-                        </Center>
-                    </View>
-                </Center>
                 <Box>
-                    <MaterialCommunityIcons 
-                        name={"logout"}
-                        size={40}
-                        onPress={handleClose}
-                    />
+                    <Center>
+                        <View>
+                            <TouchableOpacity onPress={handleClose}>
+                                <Box style={styles.logout} bg={colors.primary800}>
+                                    <Text style={styles.logoutword}>Log Out</Text>
+                                </Box>
+                            </TouchableOpacity>
+                        </View>
+                    </Center>
                     <Actionsheet isOpen={showActionsheet} onClose={handleClose} zIndex={999}>
                         <ActionsheetBackdrop />
                         <ActionsheetContent h="$72" zIndex={999}>
                             <Text style={styles.sure}>確定登出?</Text>
                             <HorizontalLine />
-                            <Text style={styles.yes}>Yes</Text>
+                            <ActionsheetItem onPress={handleClose}>
+                                <Center>
+                                    <ActionsheetItemText style={styles.yes}>Yes</ActionsheetItemText>
+                                </Center>
+                            </ActionsheetItem>
                             <HorizontalLine />
-                            <Text style={styles.cancel}>Cancel</Text>
+                            <ActionsheetItem onPress={handleClose}>
+                                <Center>
+                                    <ActionsheetItemText style={styles.cancel}>Cancel</ActionsheetItemText>
+                                </Center>
+                            </ActionsheetItem>
                         </ActionsheetContent>
                     </Actionsheet>
                 </Box>
@@ -177,24 +211,31 @@ const styles=StyleSheet.create(
         yes: {
             fontSize: 20,
             color: "black",
-            paddingVertical: 20
+            paddingVertical: 20,
+            textAlign: "center"
         },
         cancel: {
             fontSize: 20,
             color: "blue",
-            paddingVertical: 20
+            paddingVertical: 20,
+            alignSelf:"center"
         },
         logout: {
             marginTop: 40,
             justifyContent: "center",
-            backgroundColor: "orange",
+            //backgroundColor: "orange",
             borderRadius: 20,
-            width: 180
+            width: 180,
+            paddingVertical: 15
         },
         logoutword: {
             fontSize: 20,
-            paddingVertical: 15,
-            justifyContent: "center",
+            //paddingTop: 0,
+            //paddingBottom: 20,
+            //justifyContent: "center",
+            //alignItems: "center",
+            textAlign: "center",
+            color: 'white'
         },
         word: {
             marginLeft: 15,
@@ -209,7 +250,7 @@ const styles=StyleSheet.create(
         btns:{
             flexDirection: "column",
             justifyContent: "center",
-            marginTop: 30
+            marginTop: 40
         },
         btnup: {
             flexDirection: "row",
@@ -224,23 +265,25 @@ const styles=StyleSheet.create(
             flexDirection: "row",
             justifyContent: "flex-start",
             alignItems: "center",
-            backgroundColor: "pink",
+            //backgroundColor: "pink",
             paddingHorizontal: 15,
             paddingVertical: 10,
             height: 60,
-            width: 150,
+            width: 160,
             borderRadius: 12,
+            marginHorizontal: 5
         },
         btnright: {
             flexDirection: "row",
-            backgroundColor: "pink",
+            //backgroundColor: "pink",
             justifyContent: "flex-start",
             alignItems: "center",
             paddingHorizontal: 15,
             paddingVertical: 10,
             height: 60,
-            width: 150,
+            width: 160,
             borderRadius: 12,
+            marginHorizontal: 5
         },
         btnicon: {
             height: 40,
@@ -264,7 +307,8 @@ const styles=StyleSheet.create(
         follow: {
             flexDirection: "row",
             justifyContent: "space-around",
-            marginTop: 30
+            marginTop: 40,
+            marginBottom: 20
         },
         block: {
             flexDirection: "column",
@@ -275,16 +319,16 @@ const styles=StyleSheet.create(
             justifyContent: "center"
         },
         text: {
-            fontSize: 30,
+            fontSize: 25,
         },
         card: {
-            marginTop: 10,
+            marginTop: 30,
             flexDirection: "row",
-            alignItems: "center"
+            alignItems: "center",
         },
         icon: {
-            height: 60,
-            width: 60
+            height: 50,
+            width: 50
         },
         star:{
             height: 25,
@@ -304,7 +348,7 @@ const styles=StyleSheet.create(
             alignItems: "center"
         },
         hash: {
-            fontSize: 14,
+            fontSize: 12,
             color: "gray"
         }
     }

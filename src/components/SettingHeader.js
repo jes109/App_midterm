@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 20,
     flexDirection: "row",
-    paddingTop: 40
+    paddingTop: 60
     //shadowColor: "#000",
     //shadowOffset: { width: 0, height: 2 },
     //shadowOpacity: 0.2,
