@@ -3,14 +3,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import { View, Pressable, Image } from "@gluestack-ui/themed";
 import { useTheme } from "@gluestack-ui/themed";
+import { useNavigation } from "@react-navigation/native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from "@react-navigation/drawer";
 
 import ChatScreen from "../screens/ChatScreen";
 import ChatDetailScreen from "../screens/ChatDetailScreen";
+//import Drawer from "./Drawer"
 
 const Stack = createStackNavigator();
 
-export default ChatStack=()=>{
-    //const { colors } = useTheme();
+export default function ChatStack() {
+    const navigation = useNavigation();
 
     return(
         <Stack.Navigator
@@ -25,7 +30,7 @@ export default ChatStack=()=>{
             <Stack.Screen name="Chat" component={ChatScreen} 
             options={{
                 title: "聊天室",
-                headerRight:() => (
+                headerRight: () => (
                     <View style={styles.headerStyle}>
                         <View style={styles.icons}>
                             <Pressable style={{marginRight: 10}}>
@@ -44,6 +49,14 @@ export default ChatStack=()=>{
                             </Pressable>
                         </View>
                     </View>
+                ),
+                headerLeft: () => (
+                    <MaterialCommunityIcons 
+                        name={"menu"}
+                        size={30}
+                        onPress={() => navigation.openDrawer}
+                        style={{marginRight: 20}}
+                    />
                 )
             }}
             />

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Box,Pressable,Text } from "@gluestack-ui/themed";
 import {createStackNavigator} from "@react-navigation/stack"
 import { useNavigation, useTheme } from "@react-navigation/native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign"
 import { useDispatch,useSelector } from "react-redux";
 import {selectMessage ,readMessage} from "../redux/messageSlice"
