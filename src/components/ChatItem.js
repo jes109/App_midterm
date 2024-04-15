@@ -30,10 +30,10 @@ const styles=StyleSheet.create(
             marginLeft: 15
         },
         title: {
-            fontSize: 20
+            fontSize: 18
         },
         message: {
-            fontSize: 18,
+            fontSize: 16,
             color: "gray"
         },
         card: {
