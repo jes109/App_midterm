@@ -9,7 +9,7 @@ import ChatList from "../components/ChatList";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default ChatScreen = ({navigation}) => {
-    const {colors} =useTheme();
+    //const {colors} =useTheme();
     return(
         //<Box bg={"#ADB7A8"}>
             <SafeAreaProvider>

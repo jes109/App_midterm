@@ -10,7 +10,7 @@ import ChatDetailScreen from "../screens/ChatDetailScreen";
 const Stack = createStackNavigator();
 
 export default ChatStack=()=>{
-    const { colors } = useTheme();
+    //const { colors } = useTheme();
 
     return(
         <Stack.Navigator
