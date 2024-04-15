@@ -22,8 +22,10 @@ const DrawerList = () =>{
 
 const MyDrawer = () => {
     return (
+
         <Drawer.Navigator 
-        drawerContent={props => <CustomDrawerContent {...props} />}
+            initialRouteName="HomeStack" 
+            drawerContent={props => <CustomDrawerContent {...props} />}
         >
             <Drawer.Screen 
                 name="HomeStack"
