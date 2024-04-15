@@ -9,34 +9,25 @@ import { NavigationProvider } from "./NavigationContext";
 import ChatStack from "./ChatStack";
 import HomeStack from "./HomeStack";
 import SaveStack from "./SaveStack";
+import BottomTab from "./BottomTab";
 
-const Stack = createNativeStackNavigator();
+//const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const DrawerList = () =>{
     return(
-        <NavigationContainer>
             <MyDrawer />
-        </NavigationContainer>
     );
 }
 
 const MyDrawer = () => {
     return (
-        <Drawer.Navigator initialRouteName="HomeStack">
+        <Drawer.Navigator >
             <Drawer.Screen 
                 name="HomeStack"
-                component={HomeStack}
+                component={BottomTab}
                 options={{
                     title: "Home",
-                    headerShown: false
-                }}
-            />
-            <Drawer.Screen 
-                name="ChatStack"
-                component={SettingStack}
-                options={{
-                    title: "chat",
                     headerShown: false
                 }}
             />

@@ -15,7 +15,6 @@ import UnAddActionSheet from "../components/UnAddActionSheet";
 
 const Stack = createStackNavigator();
 
-//Stack的title名稱如果有更適當的可再修改
 export default Home = () => {
     const {colors}=useTheme();
     const {goBack} =useNavigation();
