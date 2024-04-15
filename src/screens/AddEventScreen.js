@@ -1,13 +1,16 @@
 import React from "react";
 import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { Box, FormControl, FormControlLabel, FormControlLabelText, Input, InputField, Text, HStack,Pressable,Icon,AddIcon, ScrollView} from "@gluestack-ui/themed";
-import { useTheme } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import UnAddActionSheet from "../components/UnAddActionSheet";
 
 export default AddEventScreen = () =>{
     const {colors} =useTheme();
+    const {goBack}=useNavigation();
     return(
-        <ScrollView bg={colors.surface}>
+        <ScrollView bg={colors.surface} pt={60} >
+        <UnAddActionSheet />
         <Box alignItems="center"> 
             <Box bg={colors.lightsurface} w={350} rounded="$2xl" my={20} alignItems="center">
                 <TextInput style={[styles.maininput,{backgroundColor:colors.midsurface},{color:colors.primary800}]} placeholder="活動名稱"/>
@@ -35,11 +38,12 @@ export default AddEventScreen = () =>{
                         <TextInput scrollEnabled={false} numberOfLines={2} multiline={true} style={[styles.textInput,{color:colors.primary800}]} placeholder="敘述"/>
                     </HStack>
                 </Box>
-                <Pressable bg={colors.primaryContainer} style={styles.fab} py={12} rounded="$full">
-                <HStack flex={1} justifyContent="center">
-                    <Icon as={AddIcon} color={colors.primary800}/>
-                </HStack>
-            </Pressable>
+                <TouchableOpacity style={styles.fab} activeOpacity={0.6} onPress={()=>goBack()}>
+                    <HStack bg={colors.primaryContainer}  py={12} rounded="$full" flex={1} justifyContent="center">
+                        <Icon as={AddIcon} color={colors.primary800}/>
+                        <Text color={colors.primary800} bold={true}>發佈</Text>
+                    </HStack>
+                </TouchableOpacity>
             </Box>
         </Box>
         </ScrollView>

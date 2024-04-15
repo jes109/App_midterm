@@ -11,8 +11,9 @@ export default unAddActionSheet=()=>{
     const {goBack} =useNavigation();
 
     return(
-        <Box pl={12}>
+        <Box pl={12} >
           <AntDesign
+          style={[{alignSelf:"flex-end"},{marginRight:20}]}
           name="closecircleo"
           size={25}
           color={colors.primary500}

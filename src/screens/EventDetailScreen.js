@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@react-navigation/native";
-import { Box,Image,Text,HStack,VStack, ScrollView, Fab,FabIcon,FabLabel, AddIcon, Pressable, Icon, Center} from "@gluestack-ui/themed";
-import { StyleSheet } from "react-native";
+import { Box,Badge,BadgeText,Image,Text,HStack,VStack, ScrollView, Fab,FabIcon,FabLabel, AddIcon, Pressable, Icon, Center} from "@gluestack-ui/themed";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-export default EventDetail = ({route}) => {
+export default EventDetailScreen = ({route}) => {
     const { colors } = useTheme();
     const {title,location,img,date,limit,number,trait,description}=route.params;
+    const [num,setNum]=useState(number);
+    const [hasJoin,setHasJoin]=useState(false);
+    const opacity=!hasJoin?1:0.6;
+
     return(
         <Box flex={1}>
             <ScrollView>
@@ -19,17 +23,17 @@ export default EventDetail = ({route}) => {
                             <Text size="md" bold="true" color={colors.primary500}>人數:{limit}</Text>
                             <Text size="md" bold="true" color={colors.primary500}>建議條件:{trait}</Text>
                         </VStack>
-                        <Text mt={96} px={12} py={4} size="md" rounded="$2xl" bold="true" color={colors.primary500}  borderColor={colors.primary500} borderWidth={1} >目前參與人數:{number}</Text>
+                        <Text mt={96} px={12} py={4} size="md" rounded="$2xl" bold="true" color={colors.primary500}  borderColor={colors.primary500} borderWidth={1} >目前參與人數:{num}</Text>
                     </HStack>
                     <Text color="black" mt={20} size="md" bold="true" >{description}</Text>
                 </Box>
             </ScrollView>
-            <Pressable bg={colors.primaryContainer} style={styles.fab} py={12} rounded="$full">
-                <HStack flex={1} justifyContent="center">
+            <TouchableOpacity onPress={()=>{setNum(num+1);setHasJoin(true)}} activeOpacity={0.6} disabled={hasJoin}>
+                <HStack rounded="$full" py={12} style={styles.fab} bg={colors.primaryContainer} flex={1} justifyContent="center" opacity={opacity}>
                     <Icon as={AddIcon} color={colors.primary800}/>
                     <Text color={colors.primary800} bold="true">參加</Text>
                 </HStack>
-            </Pressable>
+            </TouchableOpacity>
         </Box>
            
     )
